@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
 import { FaCartArrowDown, FaSearch } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const [search, setSearch] = useState<string>();
@@ -16,9 +17,11 @@ export default function Header() {
   return (
     <div className="header">
       <form className="search-bar" onSubmit={handleSearch}>
-        <h2>storeweb</h2>
+        <NavLink to="/" className="logo">
+          storeweb
+        </NavLink>
         <div className="search-item">
-          <button>
+          <button type="submit">
             <FaSearch />
           </button>
           <input
@@ -36,7 +39,10 @@ export default function Header() {
         </div>
         <div className="profile">
           <p>Account</p>
-          <img src="https://avatars.githubusercontent.com/u/92196697?v=4" alt="" />
+          <img
+            src="https://avatars.githubusercontent.com/u/92196697?v=4"
+            alt=""
+          />
         </div>
       </div>
     </div>

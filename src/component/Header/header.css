@@ -8,8 +8,11 @@
   display: flex;
 }
 
-.search-bar h2 {
+.search-bar .logo {
   color: #f9fafb;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
   margin-right: 0.5rem;
 }
 

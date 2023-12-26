@@ -1,0 +1,52 @@
+.product {
+  overflow: hidden;
+  display: flex;
+}
+
+.product img {
+  max-width: 600px;
+}
+
+.product .info .description {
+  margin-top: 4rem;
+  max-width: 300px;
+}
+
+.product .info .description p {
+    margin-top: .8rem;
+  color: #a1a1aa;
+}
+
+.product .info .description p b {
+  padding: .4rem;
+  margin-right: 10px;
+  border-radius: 25px;
+  background: #8b5cf6;
+  color: white;
+}
+
+.product .info .description h5 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.product .info .description span {
+    margin-top: 2rem;
+    margin-right: .5rem;
+    background: #27272A;
+    padding: .4rem;
+    padding-inline: 1rem;
+    border-radius: 25px;
+    color: white;
+    border: 2px solid #3F3F46;
+}
+
+.product .info button {
+  border-radius: 25px;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: white;
+  background: #10b981;
+  border: none;
+  cursor: pointer;
+}

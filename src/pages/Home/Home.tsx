@@ -7,7 +7,13 @@ export default function Home() {
     <div>
       <Header />
       <div className="content">
-        <Card />
+        <section>
+          <Card />
+        </section>
+        <aside>
+          <Card />
+          <Card />
+        </aside>
       </div>
     </div>
   );
