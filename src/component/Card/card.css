@@ -1,0 +1,48 @@
+.modal-button {
+  cursor: pointer;
+  border: none;
+}
+
+.card-item {
+  display: flex;
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.card-item img {
+  max-width: 100%;
+  height: auto; 
+  background-color: #18181b;
+}
+
+.card-item .description {
+  display: flex;
+  align-items: center;
+  border: 2px solid #71717a;
+  border-radius: 40px;
+  padding: .2rem;
+  color: #f9fafb;
+  height: 30px;
+  right: 15px;
+  bottom: 40px;
+
+  position: absolute;
+}
+
+.card-item .description span {
+  font-weight: 400;
+}
+
+.card-item .description button {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  color: white;
+  height: 30px;
+  font-weight: 700;
+  padding: 1rem;
+  cursor: pointer;
+  background: #8b5cf6;
+  border: none;
+}

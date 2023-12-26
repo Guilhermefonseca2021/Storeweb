@@ -1,0 +1,69 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar h2 {
+  color: #f9fafb;
+  margin-right: 0.5rem;
+}
+
+.search-bar .search-item {
+  display: flex;
+}
+
+.search-bar .search-item button {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: #f9fafb;
+  border-radius: 25px 0 0 25px;
+  border: none;
+  background-color: #18181B;
+}
+
+.search-bar .search-item input {
+  padding: 0.5rem;
+  color: #71717A;
+  border-radius: 0 25px 25px 0;
+  border: none;
+  outline: none;
+  background-color: #18181B;
+}
+
+
+.information {
+  display: flex;
+  align-items: center;
+}
+
+.information .cart-item {
+  display: flex;
+  color: #f9fafb;
+  display: flex;
+  margin-right: .5rem;
+}
+
+.information .cart-item span {
+  color: #f9fafb;
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.information .profile {
+  display: flex;
+  padding-left: 10px; 
+  border-left: 1px solid #71717A; 
+  color: #f9fafb;
+  gap: 10px;
+  align-items: center;
+}
+.information .profile img {
+  width: 27px;
+  border-radius: 50%;
+}
