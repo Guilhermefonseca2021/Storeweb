@@ -38,6 +38,7 @@ export async function deleteProduct(req: Request, res: Response) {
 
   try {
     const product = await Product.findByIdAndDelete(id)
+    console.log(product)
 
     if(!product) {
       return res.status(404).json({ message: 'Product not found, please provide a valid product'})
@@ -52,7 +53,7 @@ export async function deleteProduct(req: Request, res: Response) {
 export async function updateProduct(req: Request, res: Response) {
   const { name, price, image, description, size } = req.body;
   const { id } = req.params;
-  
+
   try {
     const updateProduct = await Product.findByIdAndUpdate(id, {
       name,
@@ -62,7 +63,7 @@ export async function updateProduct(req: Request, res: Response) {
       size
     })
 
-    res.status(200).json({ message: "updated product"})
+    res.status(200).json({ message: "updated product", updateProduct})
   } catch(err) {
     return res.status(500).json({ error: `Internal server error ${err}` });
   }

@@ -16,7 +16,10 @@
 - [ ] Responsividade
 - [x] Clean code
 
-<img width="1567" alt="-product-sales-" src="">
+<img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Ecoleta-web/assets/92196697/7f768761-23e7-4132-963b-2a29a6a563e6
+">
+<img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Ecoleta-web/assets/92196697/789ac549-d290-4ce8-9536-e2c60ce478d5">
+
 
 ## Descrição do Projeto
 
