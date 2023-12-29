@@ -38,11 +38,11 @@ export default function Login() {
   return (
     <div className="login-page">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email:</label>
-        <input {...register("email")} />
+        <label htmlFor="email">Email:</label>
+        <input type="email" {...register("email")} />
         {errors.email?.message && <p>{errors.email?.message}</p>}
 
-        <label>Password:</label>
+        <label htmlFor="password">Password:</label>
         <input type="string" {...register("password")} />
         {errors.password?.message && <p>{errors.password?.message}</p>}
         <button type="submit">Login</button>
