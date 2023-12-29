@@ -8,7 +8,6 @@
 </p>
 
 ## Features
-
 - [x] Catálogo de produtos
 - [x] Carrinho de compras
   - [ ] Finalização de compra
@@ -16,8 +15,7 @@
 - [ ] Responsividade
 - [x] Clean code
 
-<img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Ecoleta-web/assets/92196697/7f768761-23e7-4132-963b-2a29a6a563e6
-">
+<img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Storeweb/assets/92196697/1dfe4f07-795f-4830-9eb9-e189e92b6584">
 <img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Ecoleta-web/assets/92196697/789ac549-d290-4ce8-9536-e2c60ce478d5">
 
 
@@ -32,7 +30,7 @@ Este projeto é um site de vendas de produtos, oferecendo aos usuários uma expe
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/) -->
 - [Express](https://expressjs.com/) -->
-
+- 
 ## Pré-requisitos
 
 Antes de começar, é necessário ter um navegador web moderno para acessar o site. Não são necessárias instalações adicionais.
@@ -50,7 +48,7 @@ $  cd front-end
 $  npm run dev
 ```
 
-<a href="">Explorar o catálogo agora. </a>
+<a href="https://storeweb-liard.vercel.app/">Explorar o catálogo agora. </a>
 
 made with 💜 by GUILHERME FONSECA 👋 [See my linked-in](https://www.linkedin.com/in/guilherme-fonseca-dos-santos-a49594207/)
 

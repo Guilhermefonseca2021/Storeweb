@@ -1,6 +1,7 @@
 .modal-button {
   cursor: pointer;
   border: none;
+  outline: none;
 }
 
 .card-item {
@@ -23,7 +24,7 @@
   border-radius: 40px;
   padding: .2rem;
   color: #f9fafb;
-  height: 30px;
+  height: 1.7rem;
   right: 15px;
   bottom: 40px;
 
@@ -38,8 +39,9 @@
   display: flex;
   align-items: center;
   border-radius: 25px;
+  outline: none;
   color: white;
-  height: 30px;
+  height: .2rem;
   font-weight: 700;
   padding: 1rem;
   cursor: pointer;

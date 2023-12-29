@@ -1,6 +1,6 @@
-import Header from "../../component/Header/Header";
 import { useParams } from "react-router-dom";
 import "./products.css";
+import Header from "../../components/Header/Header";
 
 export default function Products() {
 
@@ -9,7 +9,7 @@ export default function Products() {
   return (
     <div>
       <Header />
-      <div className="results-procuts">
+      <div className="results-products">
         <p>search: {search} </p>
       </div>
     </div>

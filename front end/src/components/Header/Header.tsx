@@ -14,6 +14,10 @@ export default function Header() {
     navigate(`/results/${search}`);
   }
 
+  function handleLogin() {
+    navigate(`/login`);
+  }
+  
   return (
     <div className="header">
       <form className="search-bar" onSubmit={handleSearch}>
@@ -37,7 +41,7 @@ export default function Header() {
           <FaCartArrowDown className="cart-item" />
           <span>(3)</span>
         </div>
-        <div className="profile">
+        <div onClick={handleLogin} className="profile">
           <p>Account</p>
           <img
             src="https://avatars.githubusercontent.com/u/92196697?v=4"

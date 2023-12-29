@@ -1,5 +1,5 @@
-import Card from "../../component/Card/Card";
-import Header from "../../component/Header/Header";
+import Card from "../../components/Card/Card";
+import Header from "../../components/Header/Header";
 import "./home.css";
 
 export default function Home() {

@@ -1,6 +1,6 @@
 import "./product.css";
 import imgProduct from "../../assets/images/moletom-never-stop-learning 1.png";
-import Header from "../../component/Header/Header";
+import Header from "../../components/Header/Header";
 
 export default function Product() {
   return (

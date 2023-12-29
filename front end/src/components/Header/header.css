@@ -63,6 +63,7 @@
   padding-left: 10px; 
   border-left: 1px solid #71717A; 
   color: #f9fafb;
+  cursor: pointer;
   gap: 10px;
   align-items: center;
 }

@@ -6,11 +6,11 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #09090A;
 }
 
 body, 
 html {
+  background-color: #09090A;
   font-family: 'Roboto', sans-serif;
   color: #f9fafb;
   font-weight: 400;
