@@ -9,6 +9,7 @@ import { RequireAuth } from "./contexts/Auth/RequireAuth";
 import Profile from "./pages/Profile/Profile";
 
 export default function App() {
+
   return (
     <>
       <Routes>

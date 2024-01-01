@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import "./styles.css";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface FormData {
   email: string;
@@ -12,7 +15,7 @@ interface FormData {
 const schema = z.object({
   email: z
     .string()
-    .min(6, { message: "Este campo tem que ser preenchido." })
+    .min(1, { message: "Este campo tem que ser preenchido." })
     .email("Este não é um email válido."),
   password: z
     .string()
@@ -28,11 +31,19 @@ export default function Login() {
     resolver: zodResolver(schema),
   });
   const navigate = useNavigate();
+  const auth = useContext(AuthContext);
 
-  function onSubmit(data: FormData) {
+  async function onSubmit(data: FormData) {
     console.log(data);
-
-    navigate(`/`);
+    if (data) {
+      const isLogged = await auth.signin(data.email, data.password);
+      if (isLogged) {
+        navigate("/");
+        console.log(isLogged);
+      } else {
+        alert("Something went wrong, verify you email or password.");
+      }
+    }
   }
 
   return (
@@ -45,7 +56,13 @@ export default function Login() {
         <label htmlFor="password">Password:</label>
         <input type="string" {...register("password")} />
         {errors.password?.message && <p>{errors.password?.message}</p>}
+
         <button type="submit">Login</button>
+        <div className="info">
+          <p>
+            Nao possui uma conta? <NavLink to="/register">Criar conta.</NavLink>
+          </p>
+        </div>
       </form>
     </div>
   );

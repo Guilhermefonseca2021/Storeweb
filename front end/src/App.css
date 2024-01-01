@@ -8,11 +8,18 @@
   padding: 0;
 }
 
-body, 
+body,
 html {
-  background-color: #09090A;
-  font-family: 'Roboto', sans-serif;
+  background-color: #09090a;
+  font-family: "Roboto", sans-serif;
   color: #f9fafb;
   font-weight: 400;
-  padding: 1rem 1.5rem ;
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 740px) {
+  body,
+  html {
+    padding: .5rem;
+  }
 }

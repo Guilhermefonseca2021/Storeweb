@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors())
 
 app.use('/products', productRoutes)
-app.use('/user', userRoutes)
+app.use('', userRoutes)
 
 connectDatabase()
   .then(() => app.listen(3333, () => console.log("server is running at 3333")))

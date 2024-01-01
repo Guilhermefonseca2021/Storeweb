@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { NavLink } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -12,9 +14,7 @@ interface FormData {
 }
 
 const schema = z.object({
-  name: z
-    .string()
-    .min(3, { message: "Por favor ensira um nome valido." }),
+  name: z.string().min(3, { message: "Por favor ensira um nome valido." }),
   email: z
     .string()
     .min(6, { message: "Este campo tem que ser preenchido." })
@@ -25,6 +25,9 @@ const schema = z.object({
 });
 
 export default function Register() {
+  const [output, setOutput] = useState<FormData>();
+  console.log(output);
+
   const {
     register,
     handleSubmit,
@@ -33,12 +36,22 @@ export default function Register() {
     resolver: zodResolver(schema),
   });
   const navigate = useNavigate();
+  const auth = useContext(AuthContext);
 
-  const [output, setOutput] = useState<FormData>();
-  console.log(output);
-
-  function createUser(data: FormData) {
-    navigate('/login')
+  async function createUser(data: FormData) {
+    console.log(data);
+    if (data) {
+      const isLogged = await auth.register(
+        data.name,
+        data.email,
+        data.password
+      );
+      if (isLogged) {
+        navigate("/login");
+      } else {
+        alert("Something went wrong, verify you email or password.");
+      }
+    }
     setOutput(data);
   }
 
@@ -58,6 +71,11 @@ export default function Register() {
         {errors.password?.message && <p>{errors.password?.message}</p>}
 
         <button type="submit">Criar conta</button>
+        <div className="info">
+          <p>
+            Ja possui conta? <NavLink to="/login">Faca login.</NavLink>
+          </p>
+        </div>
       </form>
     </div>
   );

@@ -63,11 +63,32 @@ export async function loginUser(req: Request, res: Response) {
       expiresIn: auth.expiresIn,
     });
 
-    res.status(200).json({ message: "Login successfully", token: token });
+    res
+      .status(200)
+      .json({ message: "Login successfully", user: user, token: token });
   } catch (err: any) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
+}
+
+export async function checkUser(req: Request, res: Response) {
+  let user;
+  const authHeader = req.headers.authorization;
+  
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+
+    const decoded = jwt.verify(token, auth.secret as string) as { id: string };
+
+    user = await User.findById(decoded.id);
+
+    user?.password ?? undefined;
+  } else {
+    user = null;
+  }
+  
+  res.status(200).json({ user: user});
 }
 
 export async function updateUser(req: Request, res: Response) {
@@ -113,18 +134,18 @@ export async function updateUser(req: Request, res: Response) {
 export async function deleteUser(req: Request, res: Response) {
   const { id } = req.params;
 
-  try{
-    const user = await User.findById(id)
+  try {
+    const user = await User.findById(id);
 
-    if(!user) {
+    if (!user) {
       return res.status(404).json({ message: "Unauthorized - User not found" });
     }
 
-    const deletedUser = user.deleteOne()
-    
-    res.status(200).json({ message: 'User deleted', user: deletedUser })
+    const deletedUser = user.deleteOne();
+
+    res.status(200).json({ message: "User deleted", user: deletedUser });
   } catch (err: any) {
     console.error(err);
-    res.status(500).json({ message: "Internal Server Error"});
+    res.status(500).json({ message: "Internal Server Error" });
   }
 }

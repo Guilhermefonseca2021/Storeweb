@@ -1,36 +1,75 @@
-import { createContext, useState } from 'react';
-import { User } from '../../types/User';
-import { useApi } from '../../hooks/useApi';
+import { createContext, useEffect, useState } from "react";
+import { User } from "../../types/User";
+import { useApi } from "../../hooks/useApi";
 
 export type AuthContextType = {
-    user: User | null;
-    signin: (email: string, password: string) => Promise<boolean>;
-    signout: () => void;
-}
+  user: User | null;
+  register: (name: string, email: string, password: string) => Promise<boolean>;
+  signin: (email: string, password: string) => Promise<boolean>;
+  signout: () => void;
+};
 
 export const AuthContext = createContext<AuthContextType>(null!);
 
-export function AuthProvider({ children }: { children: JSX.Element}) {
-    const [user, setUser] = useState<User | null>(null);
-    const api = useApi();
+export function AuthProvider({ children }: { children: JSX.Element }) {
+  const [user, setUser] = useState<User | null>(null);
+  const api = useApi();
+  
+  useEffect(() => {
+    async function validateToken() {
+      const storageData = localStorage.getItem("authToken");
 
-    async function signin(email: string, password: string) {
-        const data = await api.signin(email, password);
-        if (data.user && data.token) {
-            setUser(data.user);
-            return true;
+      if (storageData) {
+        console.log(storageData)
+        const data = await api.validateToken(storageData);
+        console.log(data)
+        
+        // multiple renders at here. idk why
+        if (data.user) {
+          setUser(data.user);
         }
-        return false;
+      }
+    }
+    validateToken();
+  }, [api]);
+
+  async function signin(email: string, password: string) {
+    const data = await api.signin(email, password);
+    console.log(data);
+
+    if (data) {
+      setUser(data.user);
+      console.log(data.token);
+      setToken(data.token);
+      return true;
     }
 
-    async function signout() {
-        await api.signout();
-        setUser(null);
+    return false;
+  }
+
+  async function register(name: string, email: string, password: string) {
+    const data = await api.register(name, email, password);
+    if (data.user) {
+      setUser(data.user);
+      setToken(data.token);
+      return true;
     }
 
-    return(
-        <AuthContext.Provider value={{ user, signin, signout }}>
-            {children}
-        </AuthContext.Provider>
-    )
+    return false;
+  }
+
+  async function signout() {
+    await api.signout();
+    setUser(null);
+  }
+
+  async function setToken(token: string) {
+    localStorage.setItem("authToken", token);
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, register, signin, signout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }

@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import auth from "../config/auth";
 import User from "../model/user";
-import { UserProps } from './../types/user';
 
 export default async function verifyToken(
   req: Request,
@@ -10,7 +9,7 @@ export default async function verifyToken(
   next: NextFunction
 ) {
   const token = req.headers.authorization?.split(" ")[1];
-
+  
   if (!token) {
     return res.status(401).json({ message: "Unauthorized - Token missing" });
   }

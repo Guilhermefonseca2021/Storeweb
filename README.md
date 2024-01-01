@@ -8,6 +8,7 @@
 </p>
 
 ## Features
+
 - [x] Catálogo de produtos
 - [x] Carrinho de compras
   - [ ] Finalização de compra
@@ -17,7 +18,6 @@
 
 <img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Storeweb/assets/92196697/1dfe4f07-795f-4830-9eb9-e189e92b6584">
 <img width="1567" alt="-product-sales-" src="https://github.com/Guilhermefonseca2021/Ecoleta-web/assets/92196697/789ac549-d290-4ce8-9536-e2c60ce478d5">
-
 
 ## Descrição do Projeto
 
@@ -30,7 +30,8 @@ Este projeto é um site de vendas de produtos, oferecendo aos usuários uma expe
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/) -->
 - [Express](https://expressjs.com/) -->
-- 
+-
+
 ## Pré-requisitos
 
 Antes de começar, é necessário ter um navegador web moderno para acessar o site. Não são necessárias instalações adicionais.
@@ -39,7 +40,7 @@ Antes de começar, é necessário ter um navegador web moderno para acessar o si
 
 ```js
 // Clone o repositório para o seu ambiente de desenvolvimento local.
-$  git clone https://github.com/SeuUsuario/NomeDoRepositorio.git
+$  git clone https://github.com/Guilhermefonseca2021/Storeweb.git
 
 // Abra a pasta
 $  cd front-end
