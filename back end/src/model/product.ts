@@ -22,6 +22,10 @@ const ProductSchema = new mongoose.Schema(
       type: [String],
       default: ["P", "M", "G", "GG"],
     },
+    featured: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true,

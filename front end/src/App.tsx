@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import { RequireAuth } from "./contexts/Auth/RequireAuth";
 import Profile from "./pages/Profile/Profile";
+import { CreateProduct } from "./pages/Admin/CreateProduct";
 
 export default function App() {
 
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/edit/profile/:id" element={<RequireAuth><Profile /></RequireAuth>} />
+        <Route path="/products/create" element={<CreateProduct />} />
       </Routes>
     </>
   );

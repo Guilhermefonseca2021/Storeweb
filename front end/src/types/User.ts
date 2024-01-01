@@ -4,4 +4,5 @@ export type User = {
   email: string;
   image?: string;
   password?: string;
+  cart?: { product: [], quantity: number}
 };

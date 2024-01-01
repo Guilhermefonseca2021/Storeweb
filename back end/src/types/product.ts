@@ -1,8 +1,9 @@
 export interface Product {
   name: string;
   price: number;
-  imgProduct: [""];
+  image: [""];
   size: [""];
+  featured?: boolean;
   createdAt: NativeDate;
   updatedAt: NativeDate;
 }

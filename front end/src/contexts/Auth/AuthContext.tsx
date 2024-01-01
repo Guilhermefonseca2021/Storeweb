@@ -23,7 +23,7 @@ export function AuthProvider({ children }: { children: JSX.Element }) {
         console.log(storageData)
         const data = await api.validateToken(storageData);
         console.log(data)
-        
+
         // multiple renders at here. idk why
         if (data.user) {
           setUser(data.user);

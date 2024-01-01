@@ -1,17 +1,24 @@
 import "./card.css";
-import imgProduct from "../../assets/images/moletom-never-stop-learning 1.png";
+import { Product } from "../../types/Product";
+import { useNavigate } from "react-router-dom";
 
-export default function Card() {
+export default function Card({ id, name, image, price }: Product) {
+  const navigate = useNavigate()
+  const productId = id
+
+  function goToProduct() {
+    navigate(`/product/${productId}`)
+  }
 
   return (
-    <button className="modal-button">
+    <button onClick={goToProduct} className="modal-button">
       <div className="card-item">
-        <img src={imgProduct} alt="" />
+        <img src={image} alt="" />
         <div className="description">
-          <span>Moleton Never S...</span>
-          <button>RS44</button>
+          <span>{name}</span>
+          <button>{price}</button>
         </div>
-      </div>   
+      </div>
     </button>
   );
 }

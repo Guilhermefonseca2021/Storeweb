@@ -1,7 +1,7 @@
 import axios from "axios";
 import auth from "../config/auth";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: auth.baseUrl,
 });
 
