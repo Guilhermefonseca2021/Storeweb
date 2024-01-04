@@ -1,28 +1,35 @@
 import "./product.css";
-import imgProduct from "../../assets/images/moletom-never-stop-learning 1.png";
 import Header from "../../components/Header/Header";
+import { Product } from "../../types/Product";
+import { api } from "../../hooks/useApi";
 
-export default function Product() {
+export default function Product({id, image, price, description, size, name}: Product) {
+  async function addProductToCart() {
+    const data = api.post('/products', id)
+    console.log(data)
+  }
+
   return (
     <>
       <Header />
       <div className="product">
-        <img src={imgProduct} alt="" />
+        <img src={image} alt="" />
         <div className="info">
           <div className="description">
-            <h2>Moleton Never Stop Learning</h2>
-            <p>Moleton fabricado com 88% de algodao e 12% de poliester.</p>
+            <h2>{name}</h2>
+            <p>{description}</p>
 
             <p>
-              <b>RS99</b> Em 12x s/juros de RS8,25{" "}
+              <b>R${price}</b> Em 12x s/juros de R$
             </p>
             <h5>Tamanhos</h5>
-            <span>P</span>
-            <span>M</span>
-            <span>G</span>
-            <span>GG</span>
+            {size?.map(size => {
+              return (
+                <span>{size}</span>
+              )
+            })}
           </div>
-          <button>Adicionar ao carrinho</button>
+          <button onClick={addProductToCart}>Adicionar ao carrinho</button>
         </div>
       </div>
     </>
