@@ -3,6 +3,7 @@ import Product from "../model/product";
 import User from "../model/user";
 import jwt from "jsonwebtoken";
 import auth from "../config/auth";
+import { ObjectId } from "mongoose";
 
 export async function getProducts(req: Request, res: Response) {
   try {
@@ -15,6 +16,7 @@ export async function getProducts(req: Request, res: Response) {
 }
 
 export async function createProduct(req: Request, res: Response) {
+  const url = req.originalUrl;
   const { name, price, image, description, size, featured } = req.body;
 
   try {
@@ -25,12 +27,18 @@ export async function createProduct(req: Request, res: Response) {
     const newProduct = await Product.create({
       name,
       price,
-      description,
       image,
       size,
-      featured
+      featured,
+      description,
     });
     
+    const url: string = newProduct._id.toString();
+    
+    newProduct.url = url as string;
+    
+    await newProduct.save();
+
     res.status(200).json({ message: "product created", newProduct });
   } catch (err) {
     return res.status(500).json({ error: `Internal server error ${err}` });
@@ -86,7 +94,7 @@ export async function addProductToCart(req: Request, res: Response) {
         .status(422)
         .json({ message: "Unauthorized - User not found." });
     }
-    
+
     const decoded = jwt.verify(token, auth.secret as string) as {
       id: string;
     };

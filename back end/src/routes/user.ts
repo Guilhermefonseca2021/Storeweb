@@ -12,7 +12,6 @@ const userRoutes = Router();
 
 userRoutes.post("/signin", loginUser);
 userRoutes.post("/register", createUser);
-
 userRoutes.use(verifyToken)
 userRoutes.get("/checkuser", checkUser);
 userRoutes.put("/update_user/:id", updateUser);

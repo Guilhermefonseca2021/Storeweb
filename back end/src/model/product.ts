@@ -22,6 +22,9 @@ const ProductSchema = new mongoose.Schema(
       type: [String],
       default: ["P", "M", "G", "GG"],
     },
+    url: {
+      type: String
+    },
     featured: {
       type: Boolean,
       default: false

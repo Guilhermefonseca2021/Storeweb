@@ -13,7 +13,7 @@ export default async function verifyToken(
   if (!token) {
     return res.status(401).json({ message: "Unauthorized - Token missing" });
   }
-
+  
   try {
     const decoded = jwt.verify(token, auth.secret as string) as { id: string };
     const user = await User.findById(decoded.id);

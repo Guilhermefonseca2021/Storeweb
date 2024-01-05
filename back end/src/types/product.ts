@@ -3,6 +3,7 @@ export interface Product {
   price: number;
   image: [""];
   size: [""];
+  url: string;
   featured?: boolean;
   createdAt: NativeDate;
   updatedAt: NativeDate;
